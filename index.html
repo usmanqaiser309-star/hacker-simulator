@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hacker Simulator</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bar">
+  <div class="brand">HACKER//SIM</div>
+  <div class="row" id="modes">
+    <button data-mode="typer" class="on">Hacker Typer</button>
+    <button data-mode="matrix">CMatrix</button>
+    <button data-mode="sat">Satellite</button>
+    <button data-mode="agent">Agent Data</button>
+    <button data-mode="phone">Phone Breach</button>
+    <button data-mode="holly">Hollywood</button>
+  </div>
+  <div class="ctl">
+    <label for="speed">Speed <input id="speed" type="range" min="1" max="10" value="3"></label>
+    <button id="auto">Auto: off</button>
+    <button id="pal">Color: green</button>
+    <button id="granted">Granted</button>
+    <button id="denied">Denied</button>
+    <button id="fs">Fullscreen</button>
+  </div>
+</div>
+
+<div id="stage">
+  <section id="typer" class="scr on">
+    <div class="split">
+      <div><div class="ptitle">root@mainframe: ~/core</div><pre id="code" class="code" style="margin:0"></pre></div>
+      <div><div class="ptitle">terminal output</div><div id="out" class="out"></div></div>
+    </div>
+    <div class="hint">Koi bhi key dabao ya screen tap karo. Enter = run, Alt = Access Granted, Tab = Access Denied.</div>
+  </section>
+
+  <section id="matrix" class="scr">
+    <canvas id="cvM"></canvas>
+    <div class="mtools">
+      <button data-c="green" class="on">Green</button><button data-c="red">Red</button><button data-c="blue">Blue</button><button data-c="rainbow">Rainbow</button>
+    </div>
+  </section>
+
+  <section id="sat" class="scr">
+    <div class="split2"><canvas id="cvS"></canvas><div><div class="ptitle">uplink log</div><div id="satlog" class="out" style="height:calc(100% - 28px)"></div></div></div>
+  </section>
+
+  <section id="agent" class="scr">
+    <div class="agrid">
+      <div id="aglist" class="aglist"></div>
+      <canvas id="cvA"></canvas>
+      <div id="agrec" class="agrec"></div>
+    </div>
+  </section>
+
+  <section id="phone" class="scr">
+    <div class="pgrid">
+      <div class="phonebox">
+        <div class="phone">
+          <div class="pt" id="ptime">09:41</div>
+          <div class="pl" id="plock">LOCKED</div>
+          <div class="pin" id="ppin"><i>*</i><i>*</i><i>*</i><i>*</i></div>
+          <div class="apps"><span>Messages<b id="aM">0</b></span><span>Contacts<b id="aC">0</b></span><span>Photos<b id="aP">0</b></span><span>Locations<b id="aL">0</b></span></div>
+        </div>
+      </div>
+      <div class="psteps">
+        <div class="row" style="align-items:center"><span class="ptitle" style="border:0;margin:0">Target</span><input id="ptarget" type="text" value="TARGET-PHONE" maxlength="24" aria-label="Target name"></div>
+        <div id="pst" style="display:flex;flex-direction:column;gap:10px"></div>
+        <div id="pban" class="pbanner"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="holly" class="scr"><div id="hgrid" class="hgrid"></div></section>
+
+  <div id="popup" class="popup" hidden></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
